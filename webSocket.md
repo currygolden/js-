@@ -39,7 +39,7 @@ webSocket是HTML5开始提供的一种TCP连接上进行全双工通讯的协议
 - 认识webSocket连接的区别
 - 几个demo实例
 
-`<script type="text/javascript">
+```js
 		var websocket = new WebSocket("ws://localhost:3000/")
 		function showMessage(str){
 			var div = document.createElement('div');
@@ -63,9 +63,9 @@ webSocket是HTML5开始提供的一种TCP连接上进行全双工通讯的协议
 			showMessage(e.data);
 			document.getElementById('recv').innerHTML = e.data;
 		}
-	</script>`
-
-`var server = ws.createServer(function(conn){
+```
+```js
+var server = ws.createServer(function(conn){
 	//用户连接
 	console.log("New Connection")
 	clientCount++
@@ -84,7 +84,8 @@ webSocket是HTML5开始提供的一种TCP连接上进行全双工通讯的协议
 		console.log("Handle err")
 		console.log(err)
 	})
-}).listen(PORT)`
+}).listen(PORT)
+```
 
 
 <img src="./images/webSocket/4.png" width="800">
@@ -123,7 +124,9 @@ Socket.IO 是一个封装了 Websocket、基于Node的JavaScript框架，包含c
 - 进入，退出样式
 - 用户名标志
 - socket.io简化
-`var app = require('http').createServer()
+
+```js
+var app = require('http').createServer()
 	var  io = require('socket.io')(app)
 
 	io.on('connection', function(socket){
@@ -137,7 +140,8 @@ Socket.IO 是一个封装了 Websocket、基于Node的JavaScript框架，包含c
 		socket.on('disconnect', function(){
 			io.emit('leave' ,socket.nickName +'left')
 		})
-	})`
+	})
+```
 
 ## 总结
 本文的目的在于介绍webSocket的原理和使用场景，以一个简易聊天室的案例介绍了websocket的使用和socket.io框架。
