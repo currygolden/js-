@@ -25,7 +25,7 @@ Pipeling解决方式为，若干个请求排队串行化单线程处理，后面
 
 webSocket是HTML5开始提供的一种TCP连接上进行全双工通讯的协议，是真正意义上的持久性连接
 
-**问题2**
+**问题2:**
 - 持久性连接该怎么理解
 - multiplexing（多路复用）是什么
 
@@ -148,8 +148,8 @@ var app = require('http').createServer()
 理解全文和拓展知识点需要在http协议不同版本的演化基础上，知晓其优点和当前的局限性。从而知道webSocket是在什么
 场景下提出的，解决了什么问题，通过提供的demo案例知道如何去实现一个websocket连接，认识常见字段的含义。需要进
 一步认识网络请求知识点，见文末拓展链接。
-- [demo案例代码]() 
-**node wsServer.js** 执行服务端脚本
+- [demo案例代码](https://mobike.io/mobike-fe/webSocket-chatRoom.git) 
+- **node wsServer.js** 执行服务端脚本
 
 ## 提问环节
 - http协议不同版本的特点
