@@ -9,7 +9,8 @@
 http1.1支持长连接（PersistentConnection）请求的流水线（Pipelining）在一个TCP连接上可以
 传送多个HTTP请求和响应，减少了建立和关闭连接的消耗和延迟，在http1.1中默认开启Connection： keep-alive，一定程度上弥补了HTTP1.0每次请求都要创建连接的缺点。
 
-**问题1**
+**问题1:**
+
 - Pipelining机制的限制性
 - 怎么及时更新服务器的数据
 
@@ -18,10 +19,12 @@ Pipeling解决方式为，若干个请求排队串行化单线程处理，后面
 的线头阻塞；
 
 采用服务端推送机制，及时更新数据
-<img src="./images/webSocket/3.png" width="500">
+
+<img src="./images/webSocket/3.png" width="600">
 
 
 webSocket是HTML5开始提供的一种TCP连接上进行全双工通讯的协议，是真正意义上的持久性连接
+
 **问题2**
 - 持久性连接该怎么理解
 - multiplexing（多路复用）是什么
@@ -29,7 +32,7 @@ webSocket是HTML5开始提供的一种TCP连接上进行全双工通讯的协议
 无需重复tcp握手阶段，多个http请求无需单独发送header；
 多个请求可同时在一个连接上并行执行,某个请求任务耗时严重，不会影响到其它连接的正常执行
 
-<img src="./images/webSocket/2.png" width="500">
+<img src="./images/webSocket/2.png" height="600">
 
 ## 怎样建立webSocket连接
 - 客户端，服务器同时支持
@@ -37,9 +40,9 @@ webSocket是HTML5开始提供的一种TCP连接上进行全双工通讯的协议
 - 几个demo实例
 
 
-<img src="./images/webSocket/4.png" width="500">
+<img src="./images/webSocket/4.png" width="800">
 
-<img src="./images/webSocket/5.png" width="500">
+<img src="./images/webSocket/5.png" width="800">
 
 
 ### webSocket协议的特征
@@ -66,7 +69,7 @@ webSocket是HTML5开始提供的一种TCP连接上进行全双工通讯的协议
 - demo实例
 Socket.IO 是一个封装了 Websocket、基于Node的JavaScript框架，包含client的JavaScript和server的Node
 其不仅支持 WebSocket，还支持许多种轮询机制以及其他实时通信方式，并封装了通用的接口
-<img src="./images/webSocket/6.png" width="500">
+<img src="./images/webSocket/6.png" width="800">
 
 ## 聊天室场景的优化
 - 添加消息样式
@@ -78,7 +81,7 @@ Socket.IO 是一个封装了 Websocket、基于Node的JavaScript框架，包含c
 本文的目的在于介绍webSocket的原理和使用场景，以一个简易聊天室的案例介绍了websocket的使用和socket.io框架。
 理解全文和拓展知识点需要在http协议不同版本的演化基础上，知晓其优点和当前的局限性。从而知道webSocket是在什么
 场景下提出的，解决了什么问题，通过提供的demo案例知道如何去实现一个websocket连接，认识常见字段的含义。需要进
-一步认识网络请求知识点，见文末拓展链接
+一步认识网络请求知识点，见文末拓展链接。
 
 ## 提问环节
 - http协议不同版本的特点
@@ -86,9 +89,6 @@ Socket.IO 是一个封装了 Websocket、基于Node的JavaScript框架，包含c
 - 及时获取服务器数据常见方式
 - HTTP2.0的多路复用和HTTP1.X中的长连接复用有什么区别？
 - webSocket数据帧格式定义
-
-
-
 
 
 ## 拓展链接
