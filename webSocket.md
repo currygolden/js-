@@ -40,29 +40,29 @@ webSocket是HTML5开始提供的一种TCP连接上进行全双工通讯的协议
 - 几个demo实例
 
 ```js
-		var websocket = new WebSocket("ws://localhost:3000/")
-		function showMessage(str){
-			var div = document.createElement('div');
-			div.innerHTML = str;
-			document.body.appendChild(div);
-		}
-		websocket.onopen = function(){
-			console.log('websocket open');
-			document.getElementById('sendBtn').onclick = function() {
-			var txt = document.getElementById('sendText').value;
-			if(txt){
-				websocket.send(txt);
-			 }	
-		  }
-		}
-		websocket.onclose = function(){
-			console.log('websocket close');
-		}
-		websocket.onmessage = function(e){
-			console.log('e.data');
-			showMessage(e.data);
-			document.getElementById('recv').innerHTML = e.data;
-		}
+var websocket = new WebSocket("ws://localhost:3000/")
+function showMessage(str){
+	var div = document.createElement('div');
+	div.innerHTML = str;
+	document.body.appendChild(div);
+}
+websocket.onopen = function(){
+	console.log('websocket open');
+	document.getElementById('sendBtn').onclick = function() {
+	var txt = document.getElementById('sendText').value;
+	if(txt){
+		websocket.send(txt);
+	 }	
+  }
+}
+websocket.onclose = function(){
+	console.log('websocket close');
+}
+websocket.onmessage = function(e){
+	console.log('e.data');
+	showMessage(e.data);
+	document.getElementById('recv').innerHTML = e.data;
+}
 ```
 ```js
 var server = ws.createServer(function(conn){
