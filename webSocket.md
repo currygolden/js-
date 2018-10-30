@@ -6,7 +6,8 @@
 
 - 带宽: 现在网络基础建设已经使得带宽得到极大的提升，我们不再会担心由带宽而影响网速
 - 延迟: 浏览器阻塞, DNS查询,建立连接
-http1.1支持长连接（PersistentConnection）请求的流水线（Pipelining）在一个TCP连接上可以
+
+http1.1支持长连接（PersistentConnection）,请求的流水线（Pipelining）在一个TCP连接上可以
 传送多个HTTP请求和响应，减少了建立和关闭连接的消耗和延迟，在http1.1中默认开启Connection： keep-alive，一定程度上弥补了HTTP1.0每次请求都要创建连接的缺点。
 
 **问题1:**
@@ -27,6 +28,7 @@ webSocket是HTML5开始提供的一种TCP连接上进行全双工通讯的协议
 
 **问题2:**
 - 持久性连接该怎么理解
+- 全双工通讯
 - multiplexing（多路复用）是什么
 
 无需重复tcp握手阶段，多个http请求无需单独发送header；
